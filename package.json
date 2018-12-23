@@ -7,7 +7,7 @@
   "scripts": {
     "start": "parcel app/index.html",
     "start:watch": "parcel watch app/index.html",
-    "deploy": "gh-pages -d dist"
+    "deploy": "parcel build app/index.html && gh-pages -d dist"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -17,6 +17,7 @@
     "babel-preset-es2015": "^6.24.1",
     "gh-pages": "^2.0.1",
     "parcel-bundler": "^1.11.0",
+    "parcel-plugin-inlinesvg": "^0.1.0",
     "sass": "^1.15.2"
   },
   "dependencies": {

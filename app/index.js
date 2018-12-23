@@ -18,7 +18,8 @@ const state = {
   }
 }
 
-m.route.prefix("");
+// DON'T USE PATHNAME STRATEGY TO SERVE THROUGH GH PAGES
+// m.route.prefix("");
 m.route(document.getElementById('app'), '/', {
   '/login': {
     render() {

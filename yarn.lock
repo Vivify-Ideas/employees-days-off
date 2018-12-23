@@ -3742,6 +3742,12 @@ parcel-bundler@^1.11.0:
     v8-compile-cache "^2.0.0"
     ws "^5.1.1"
 
+parcel-plugin-inlinesvg@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/parcel-plugin-inlinesvg/-/parcel-plugin-inlinesvg-0.1.0.tgz#1feafe63aefb028df63ade12b1cea365dd98b860"
+  dependencies:
+    svgo "^1.0.3"
+
 parse-asn1@^5.0.0:
   version "5.1.1"
   resolved "http://registry.npmjs.org/parse-asn1/-/parse-asn1-5.1.1.tgz#f6bf293818332bd0dab54efb16087724745e6ca8"
@@ -4985,7 +4991,7 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-svgo@^1.0.0, svgo@^1.0.5:
+svgo@^1.0.0, svgo@^1.0.3, svgo@^1.0.5:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/svgo/-/svgo-1.1.1.tgz#12384b03335bcecd85cfa5f4e3375fed671cb985"
   dependencies:
