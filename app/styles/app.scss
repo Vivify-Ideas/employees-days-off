@@ -1,0 +1,36 @@
+@import
+    './../../node_modules/milligram/dist/milligram.css',
+    './utils.scss',
+    './variables.scss';
+
+.v-logo--wrapper {
+    margin-bottom: 1rem;
+}
+
+.v-logo--img {
+    width: 50px;
+
+    > svg {
+        width: 50px;
+    }
+}
+
+.v-logo--text {
+    font-size: 3.0rem;
+    padding-left: 1rem;
+    vertical-align: text-bottom;
+    letter-spacing: 0.3rem;
+    color: $v-color-primary;
+}
+
+.v-logo--loader-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.v-logo--loader {
+    width: 100vw;
+    height: 100vh;
+}
