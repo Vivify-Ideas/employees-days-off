@@ -1574,7 +1574,7 @@ var _default = {
         var password = e.target.querySelector('#password').value;
         vnode.attrs.submit(username, password);
       }
-    }, [_mithril.default.trust("\n                <fieldset>\n                    <label for=\"username\">Username</label>\n                    <input\n                        type=\"text\"\n                        placeholder=\"Enter username\"\n                        id=\"username\"\n                    />\n                    <label for=\"password\">Password</label>\n                    <input\n                        type=\"password\"\n                        placeholder=\"Enter password\"\n                        id=\"password\"\n                    />\n                    <input class=\"button-primary\" type=\"submit\" value=\"Sign in\" />\n                </fieldset>\n                ")]))));
+    }, [_mithril.default.trust("\n                <fieldset>\n                    <label for=\"username\">Username</label>\n                    <input\n                        type=\"text\"\n                        placeholder=\"Enter username\"\n                        id=\"username\"\n                    />\n                    <label for=\"password\">Password</label>\n                    <input\n                        type=\"password\"\n                        placeholder=\"Enter password\"\n                        id=\"password\"\n                    />\n                    ".concat(vnode.attrs.isAuthError ? "<p>Please enter valid login credentials.</p>" : '', "\n                    <input class=\"button-primary\" type=\"submit\" value=\"Sign in\" />\n                </fieldset>\n                "))]))));
   }
 };
 exports.default = _default;
@@ -3357,12 +3357,10 @@ var state = {
   auth: {
     username: sessionStorage.getItem('username'),
     password: sessionStorage.getItem('password')
-  } // DON'T USE PATHNAME STRATEGY
-  // FOR GITHUB PAGES URL
+  } // DON'T USE PATHNAME STRATEGY TO SERVE THROUGH GH PAGES
+  // m.route.prefix("");
 
 };
-
-_mithril.default.route.prefix("");
 
 _mithril.default.route(document.getElementById('app'), '/', {
   '/login': {
@@ -3377,7 +3375,8 @@ _mithril.default.route(document.getElementById('app'), '/', {
           });
 
           _mithril.default.route.set('/');
-        }
+        },
+        isAuthError: state.isAuthError
       });
     }
   },
@@ -3398,8 +3397,17 @@ _mithril.default.route(document.getElementById('app'), '/', {
         auth: state.auth
       }).then(function (employees) {
         state.employees = employees;
+        state.isAuthError = false;
 
         _mithril.default.redraw();
+      }).catch(function (error) {
+        Object.assign(state.auth, {
+          username: '',
+          password: ''
+        });
+        state.isAuthError = error.response.status === 401;
+
+        _mithril.default.route.set('/login');
       });
 
       return (0, _mithril.default)(_loading.default, null);
@@ -3447,7 +3455,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60256" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59379" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
