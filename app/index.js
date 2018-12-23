@@ -23,17 +23,22 @@ const state = {
 m.route(document.getElementById('app'), '/', {
   '/login': {
     render() {
-      return <LoginComponent submit={
-        (username, password) => {
-          sessionStorage.setItem('username', username);
-          sessionStorage.setItem('password', password);
-          Object.assign(state.auth, {
-            username,
-            password
-          });
-          m.route.set('/');
-        }
-      } />
+      return (
+        <LoginComponent
+          submit={
+            (username, password) => {
+              sessionStorage.setItem('username', username);
+              sessionStorage.setItem('password', password);
+              Object.assign(state.auth, {
+                username,
+                password
+              });
+              m.route.set('/');
+            }
+          }
+          isAuthError={state.isAuthError}
+        />
+      )
     }
   },
   '/': {
@@ -47,12 +52,19 @@ m.route(document.getElementById('app'), '/', {
         return <EmployeesComponent employees={state.employees} />
       }
 
-
       EmployeesService.getEmployees({
         auth: state.auth
       }).then((employees) => {
         state.employees = employees;
+        state.isAuthError = false;
         m.redraw();
+      }).catch((error) => {
+        Object.assign(state.auth, {
+          username: '',
+          password: ''
+        });
+        state.isAuthError = error.response.status === 401;
+        m.route.set('/login');
       });
 
       return <LoadingComponent />

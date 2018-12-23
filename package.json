@@ -7,7 +7,7 @@
   "scripts": {
     "start": "parcel app/index.html",
     "start:watch": "parcel watch app/index.html",
-    "deploy": "parcel build app/index.html && gh-pages -d dist"
+    "deploy": "NODE_ENV=production parcel build app/index.html && gh-pages -d dist"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

@@ -42,6 +42,11 @@ export default {
                         placeholder="Enter password"
                         id="password"
                     />
+                    ${
+                      vnode.attrs.isAuthError ? (
+                        `<p>Please enter valid login credentials.</p>`
+                      ) : ''
+                    }
                     <input class="button-primary" type="submit" value="Sign in" />
                 </fieldset>
                 `)
