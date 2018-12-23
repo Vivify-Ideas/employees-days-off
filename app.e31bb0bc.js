@@ -1364,7 +1364,7 @@ if (typeof module !== "undefined") module["exports"] = m
 else window.m = m
 }());
 },{}],"assets/logo.svg":[function(require,module,exports) {
-module.exports = "employees-days-off/logo.b37d81ec.svg";
+module.exports = '<svg id="Layer_1" data-name="Layer 1" viewBox="0 0 28.66 30"><defs><style>.cls-1{fill:#fbb615}</style></defs><path class="cls-1" d="M15 12.76a2.06 2.06 0 0 1 4.1 0v3.14a3.15 3.15 0 0 1-6.3-.07v-3.32h-1.1a1.24 1.24 0 0 1 .36-.87 1.26 1.26 0 0 1 2.14.87v3.25a1.82 1.82 0 0 0 .53 1.24 1.77 1.77 0 0 0 1.25.52 1.84 1.84 0 0 0 1.26-.52 1.77 1.77 0 0 0 .51-1.19v-3.1a.7.7 0 0 0-.21-.45.74.74 0 0 0-.49-.22.82.82 0 0 0-.51.2.74.74 0 0 0-.2.5.79.79 0 0 0 .2.51.72.72 0 0 0 .51.22v1.34a2 2 0 0 1-1.43-.6 2.05 2.05 0 0 1-.62-1.45m7.38-5.83l3.15-3.13.95.94-3.14 3.13zM6.27 3.8l3.05 3.13-1 .94-3.03-3.13zm9-3h1.33v3.75h-1.34zm10.51 12.9h4.45V15h-4.49v-1.3zm-24.17 0h4.45V15H1.57v-1.3zm17.78 7.49v2.6h-7v-2.6a7.67 7.67 0 1 1 7 0m-5.68-.83v2.1h4.34V20.3a6.14 6.14 0 0 0 3.14-2.47 6.32 6.32 0 1 0-10.63 0 6.6 6.6 0 0 0 3.15 2.56M13.85 25.06h4.72v.67c0 6.47-5.37 7-5.37 0v-.67h.65zm3.38 1.34h-2.69c0 4 2.69 3.8 2.69 0" transform="translate(-1.57 -.79)"/></svg>'
 },{}],"components/pages/employees.component.js":[function(require,module,exports) {
 "use strict";
 
@@ -3357,7 +3357,9 @@ var state = {
   auth: {
     username: sessionStorage.getItem('username'),
     password: sessionStorage.getItem('password')
-  }
+  } // DON'T USE PATHNAME STRATEGY
+  // FOR GITHUB PAGES URL
+
 };
 
 _mithril.default.route.prefix("");
@@ -3445,7 +3447,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57910" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60256" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -3588,4 +3590,4 @@ function hmrAccept(bundle, id) {
   });
 }
 },{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=employees-days-off/app.e31bb0bc.map
+//# sourceMappingURL=/app.e31bb0bc.map
